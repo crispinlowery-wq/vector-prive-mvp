@@ -1,0 +1,22 @@
+.learning-feedback {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 50px;
+  align-items: center;
+  padding: 52px 7vw;
+  background: #050505;
+  color: #fff;
+}
+
+.learning-feedback small { color: #c7aa7a; font-size: 9px; letter-spacing: 1.6px; }
+.learning-feedback h2 { font: 500 28px "Playfair Display"; margin: 9px 0; }
+.learning-feedback p { color: #c7bda9; font-size: 12px; line-height: 1.7; max-width: 480px; }
+.learning-feedback textarea { width: 100%; min-height: 92px; resize: vertical; border: 1px solid #5c4930; border-radius: 8px; padding: 13px; background: #0c0a08; color: #fff; outline: none; }
+.learning-feedback textarea:focus { border-color: #c09a62; }
+.learning-feedback button { margin-top: 9px; border: 0; border-radius: 6px; padding: 10px 15px; background: #b78f58; color: #0b1712; font-weight: 700; cursor: pointer; }
+.learning-feedback button:disabled { opacity: .45; cursor: default; }
+.learning-feedback span { display: block; margin-top: 9px; color: #dacbaf; font-size: 10px; }
+
+@media (max-width: 760px) {
+  .learning-feedback { grid-template-columns: 1fr; gap: 18px; padding: 38px 22px; }
+}

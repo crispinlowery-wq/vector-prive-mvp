@@ -1,0 +1,65 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-vector}
+      POSTGRES_USER: ${POSTGRES_USER:-vector}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+    volumes:
+      - vector_prod_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-vector} -d ${POSTGRES_DB:-vector}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    restart: unless-stopped
+    environment:
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-vector}:${POSTGRES_PASSWORD:-change-me}@db:5432/${POSTGRES_DB:-vector}
+      WEB_BASE_URL: ${WEB_BASE_URL:-http://localhost:3000}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
+      AI_PROVIDER: ${AI_PROVIDER:-placeholder}
+      EMAIL_PROVIDER: ${EMAIL_PROVIDER:-placeholder}
+      WHATSAPP_ENABLED: ${WHATSAPP_ENABLED:-false}
+      WHATSAPP_TOKEN: ${WHATSAPP_TOKEN:-}
+      WHATSAPP_APP_SECRET: ${WHATSAPP_APP_SECRET:-}
+      WHATSAPP_VERIFY_TOKEN: ${WHATSAPP_VERIFY_TOKEN:-}
+      WHATSAPP_PHONE_NUMBER_ID: ${WHATSAPP_PHONE_NUMBER_ID:-}
+      WHATSAPP_GRAPH_VERSION: ${WHATSAPP_GRAPH_VERSION:-v23.0}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      SEED_DEMO_DATA: "false"
+      ALLOW_LOCAL_PASSWORD_AUTH: "false"
+      OIDC_ISSUER: ${OIDC_ISSUER:-}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:-}
+      OIDC_JWKS_URL: ${OIDC_JWKS_URL:-}
+      PARTNER_PROVIDER: ${PARTNER_PROVIDER:-mock}
+      PARTNER_BOOKING_ENABLED: ${PARTNER_BOOKING_ENABLED:-false}
+      NUITEE_API_KEY: ${NUITEE_API_KEY:-}
+      NUITEE_SEARCH_BASE_URL: ${NUITEE_SEARCH_BASE_URL:-https://api.liteapi.travel/v3.0}
+      NUITEE_BOOKING_BASE_URL: ${NUITEE_BOOKING_BASE_URL:-https://book.liteapi.travel/v3.0}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-8000}:8000"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on:
+      - api
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+
+volumes:
+  vector_prod_data:

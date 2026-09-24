@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: vector
+      POSTGRES_USER: vector
+      POSTGRES_PASSWORD: vector
+    ports: ["5432:5432"]
+    volumes: [vector_data:/var/lib/postgresql/data]
+volumes:
+  vector_data:

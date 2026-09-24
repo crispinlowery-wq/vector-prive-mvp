@@ -1,0 +1,7 @@
+Here’s a quick private demo preview of Vector Privé — an AI luxury concierge platform for high-net-worth travellers.
+
+It shows the branded customer login, request experience, operator inbox, AI triage, booking-platform workflow, and the client intelligence repository that learns preferences, family details, travel companions and lifestyle context.
+
+Open the attached HTML demo file in your browser. Best viewed on desktop or a modern phone browser.
+
+Vector Privé — Life, perfectly orchestrated.

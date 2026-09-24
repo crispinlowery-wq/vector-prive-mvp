@@ -1,0 +1,105 @@
+.profile-photo-picker {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 20px;
+  align-items: center;
+  background: #101915;
+  border: 1px solid #34433b;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 0 0 24px;
+}
+
+.profile-photo-preview {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #22372f;
+  border: 2px solid #b38a52;
+  color: #ead3ac;
+  font: 500 25px "Playfair Display";
+}
+
+.profile-photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-photo-picker strong {
+  font: 500 17px "Playfair Display";
+  color: #fff;
+}
+
+.profile-photo-picker p {
+  color: #8f9d95;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 5px 0 11px;
+}
+
+.profile-photo-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.photo-button,
+.photo-remove {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+  border-radius: 6px;
+  padding: 8px 11px !important;
+  font-size: 10px !important;
+  cursor: pointer;
+}
+
+.photo-button {
+  background: #b38a52;
+  color: #0b0f0d !important;
+  font-weight: 700;
+}
+
+.photo-button input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.photo-button svg,
+.photo-remove svg { width: 13px; }
+
+.photo-remove {
+  border: 1px solid #46534c;
+  background: transparent;
+  color: #c2cbc5;
+}
+
+.photo-button:has(input:disabled),
+.photo-remove:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.profile-photo-note {
+  margin: 0 0 24px;
+  padding: 12px 14px;
+  border: 1px solid #34433b;
+  border-radius: 8px;
+  background: #101915;
+  color: #b9c3bd;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .profile-photo-picker { grid-template-columns: 70px 1fr; gap: 14px; }
+  .profile-photo-preview { width: 64px; height: 64px; }
+  .profile-photo-actions { align-items: flex-start; flex-direction: column; }
+}

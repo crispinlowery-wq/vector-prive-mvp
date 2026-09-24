@@ -1,0 +1,81 @@
+/* Quiet-luxury finishing layer: clarity first, ornament second. */
+:root {
+  --vp-black: #050504;
+  --vp-ink: #18130d;
+  --vp-ivory: #f7f2e9;
+  --vp-paper: #fffdfa;
+  --vp-champagne: #c7a367;
+  --vp-border: #e5d9c6;
+  --vp-radius-sm: 10px;
+  --vp-radius: 16px;
+  --vp-shadow: 0 18px 50px rgba(19, 13, 7, .08);
+}
+
+/* The client experience is deliberately calm: one dark canvas, a few considered surfaces. */
+.member-page { background: #050504; }
+.member-nav { min-height: 80px; height: auto; }
+.member-nav > div { gap: 18px; }
+.member-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+.member-nav > div > span { color: #d1c2a6; font-size: 12px; }
+.member-chip { min-width: 40px; min-height: 40px; justify-content: center; }
+
+.member-hero.atelier-hero { min-height: min(760px, calc(100vh - 80px)); }
+.atelier-hero h1 { max-width: 730px; letter-spacing: -2.5px; }
+.atelier-hero > .hero-copy > p { max-width: 600px; }
+.composer { border-radius: var(--vp-radius); padding: 10px; }
+.composer textarea { min-height: 104px; padding: 17px 18px 11px; font-size: 15px; line-height: 1.55; }
+.composer-bottom { gap: 10px; flex-wrap: wrap; }
+.composer-bottom button { min-height: 40px; }
+.composer-bottom .send { min-height: 44px; padding: 12px 17px; }
+.trust { gap: 20px; font-size: 11px; }
+
+.service-canvas { margin-top: -28px; padding: clamp(30px, 4vw, 52px); box-shadow: 0 24px 70px rgba(0, 0, 0, .28); }
+.canvas-heading { max-width: 620px; }
+.canvas-heading h2 { max-width: 560px; }
+.service-tiles { gap: 12px; }
+.service-tiles article { min-height: 158px; padding: 24px; box-shadow: none; }
+.service-tiles h3 { margin-top: 22px; }
+.service-tiles p { margin-bottom: 0; color: #6d6050; }
+
+.service-principles { margin: 0 auto; border-color: #2a2116; background: #2a2116; }
+.service-principles article { min-height: 230px; background: #0b0907; padding: 34px; }
+.service-principles small { color: #d6b778; }
+.service-principles h2 { color: #f2e3c7; }
+.service-principles p { color: #c9bda9; }
+
+.learning-feedback { padding: 64px max(7vw, 24px); border-top: 1px solid #2a2116; border-bottom: 1px solid #2a2116; }
+.learning-feedback > div:last-child { max-width: 590px; width: 100%; justify-self: end; }
+.learning-feedback textarea { min-height: 108px; padding: 15px; font-size: 14px; line-height: 1.55; }
+.learning-feedback button { min-height: 44px; padding: 11px 16px; }
+
+.member-status { padding-top: 56px; padding-bottom: 72px; color: #f2e3c7; }
+.member-status h2 { color: inherit; }
+.journey-card { border-color: #3e3020; background: #fffaf2; box-shadow: 0 18px 46px rgba(0, 0, 0, .2); }
+.journey-card button { min-height: 40px; padding: 0 4px; }
+.journey-card a { min-height: 40px; padding: 0 4px; color: inherit; display: flex; align-items: center; gap: 6px; text-decoration: none; }
+
+/* Precise, generous interaction surfaces across the signed-in workspace. */
+.topbar { min-height: 72px; }
+.primary, .partner-results article button, .approval-list button { min-height: 44px; }
+.content .panel, .content .metrics > div, .client-card { box-shadow: 0 10px 30px rgba(25, 17, 8, .045); }
+.content .panel:hover, .client-card:hover { box-shadow: var(--vp-shadow); }
+
+button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #d9bb80;
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .member-nav { padding: 0 20px; }
+  .member-nav > div { gap: 8px; }
+  .member-hero.atelier-hero { min-height: 690px; }
+  .service-canvas { margin-top: -16px; }
+  .service-principles article { min-height: auto; padding: 28px 24px; }
+  .learning-feedback { padding: 44px 22px; }
+  .learning-feedback > div:last-child { justify-self: stretch; }
+  .member-status { gap: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

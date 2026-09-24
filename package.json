@@ -1,0 +1,1 @@
+{"name":"vector-prive","private":true,"scripts":{"dev":"pnpm --filter web dev","build":"pnpm --filter web build","start":"pnpm --filter web start","test":"pnpm --filter web test"},"packageManager":"pnpm@11.7.0"}

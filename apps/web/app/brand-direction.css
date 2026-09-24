@@ -1,0 +1,25 @@
+/* Vector Privé: a private-office brand language. The image supports the service; it never competes with it. */
+.member-hero.atelier-hero { min-height: min(760px, calc(100vh - 78px)); display: flex; align-items: center; padding: 96px 7vw 88px; position: relative; isolation: isolate; overflow: hidden; background: #090806; }
+.member-hero.atelier-hero::before, .member-hero.atelier-hero::after { display: none; }
+.atelier-image { position: absolute; inset: 0; z-index: -2; background-image: linear-gradient(90deg, rgba(5,4,3,.96) 0%, rgba(5,4,3,.85) 39%, rgba(5,4,3,.38) 67%, rgba(5,4,3,.16) 100%), linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.34)), url("/images/vector-prive-private-office-hero.png"); background-size: cover; background-position: center; }
+.atelier-hero .hero-copy { max-width: 760px; }
+.atelier-hero .eyebrow { justify-content: flex-start; color: #d7b574; }
+.atelier-hero h1 { max-width: 690px; margin: 18px 0 20px; font: 500 clamp(54px, 6.5vw, 94px)/.93 "Playfair Display"; letter-spacing: -3px; }
+.atelier-hero h1 em { color: #dfc99b; font-style: italic; }
+.atelier-hero > .hero-copy > p { max-width: 620px; margin: 0; color: #dbd1c2; font: 17px/1.72 "Playfair Display"; }
+.atelier-hero .composer { margin: 34px 0 22px; width: min(710px, 100%); background: linear-gradient(180deg, #fffdf8, #f3ede3); border: 1px solid #e4d1ad; box-shadow: 0 24px 80px #00000055; }
+.atelier-hero .trust { justify-content: flex-start; color: #d8c9ad; }
+.service-canvas { position: relative; margin: -36px auto 0; max-width: min(1220px, calc(100% - 10vw)); border-radius: 22px; padding: 44px 46px; z-index: 2; }
+.canvas-heading { max-width: 680px; }
+.canvas-heading small, .service-principles small { color: #a27b42; font-size: 9px; letter-spacing: 1.5px; font-weight: 700; }
+.canvas-heading h2 { margin: 10px 0 8px; font: 500 clamp(30px, 3vw, 44px)/1.05 "Playfair Display"; color: #1f1810; }
+.canvas-heading p { margin: 0; color: #706454; font-size: 13px; line-height: 1.6; }
+.service-tiles { margin-top: 30px; }
+.service-tiles article { min-height: 175px; padding: 24px; }
+.service-tiles h3 { margin-top: 28px; font: 500 20px "Playfair Display"; }
+.service-tiles p { line-height: 1.55; }
+.service-principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; max-width: min(1220px, calc(100% - 10vw)); margin: 76px auto; background: #d9cbb6; border: 1px solid #d9cbb6; }
+.service-principles article { min-height: 245px; padding: 32px; background: #f4efe6; }
+.service-principles h2 { margin: 34px 0 10px; color: #211a12; font: 500 26px "Playfair Display"; }
+.service-principles p { max-width: 290px; margin: 0; color: #6d6257; font-size: 12px; line-height: 1.7; }
+@media (max-width: 760px) { .member-nav { height: 68px; padding: 0 20px; } .member-nav .logo-brand, .member-nav .wordmark, .member-nav > div { display: flex!important; } .member-nav > div { margin-left: auto; } .member-nav > div > span, .member-nav > div > a:not(.member-chip) { display: none!important; } .member-nav > div > .member-chip { display: grid!important; margin-left: 0; } .member-hero.atelier-hero { min-height: 720px; align-items: flex-start; padding: 76px 24px 58px; } .atelier-image { background-image: linear-gradient(180deg, rgba(4,3,2,.91), rgba(4,3,2,.66)), url("/images/vector-prive-private-office-hero.png"); background-position: 61% center; } .atelier-hero h1 { font-size: 52px; letter-spacing: -2px; } .atelier-hero > .hero-copy > p { font-size: 16px; } .service-canvas { max-width: calc(100% - 28px); margin-top: -20px; padding: 28px 22px; } .service-principles { grid-template-columns: 1fr; max-width: calc(100% - 28px); margin: 48px auto; } }

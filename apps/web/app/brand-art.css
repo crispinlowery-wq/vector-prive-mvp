@@ -1,0 +1,151 @@
+/* Supplied Vector Privé world artwork, always treated as a decorative layer. */
+:root {
+  --vp-world-art: url("/images/vector-prive-world-background.png");
+}
+
+/* Member view: the art is most visible here, with a strong left-hand veil for copy. */
+.member-hero.graphic-heavy .hero-aurora {
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, .73) 44%, rgba(0, 0, 0, .3) 74%, rgba(0, 0, 0, .12) 100%),
+    radial-gradient(circle at 74% 28%, rgba(197, 162, 107, .2), transparent 32%),
+    var(--vp-world-art);
+  background-position: center, center, center bottom;
+  background-repeat: no-repeat;
+  background-size: cover, cover, 100% 100%;
+}
+
+/* Reveal the illustrated lower third at a useful scale instead of losing it to cover-crop. */
+.member-hero.graphic-heavy .hero-aurora::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 18%;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .48) 42%, rgba(0, 0, 0, .08) 78%),
+    linear-gradient(180deg, rgba(0, 0, 0, .45), transparent 34%),
+    var(--vp-world-art);
+  background-position: center, center, center 82%;
+  background-repeat: no-repeat;
+  background-size: cover, cover, 100% auto;
+  pointer-events: none;
+}
+
+.member-hero.graphic-heavy > .hero-copy > p,
+.member-hero.graphic-heavy .trust {
+  text-shadow: 0 2px 20px #000;
+}
+
+.member-hero.graphic-heavy .hero-visual {
+  border: 1px solid rgba(208, 176, 116, .17);
+  border-radius: 34px;
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, .12) 48%, rgba(0, 0, 0, .02) 100%),
+    var(--vp-world-art);
+  background-position: center, center bottom;
+  background-repeat: no-repeat;
+  background-size: cover, 100% 100%;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, .45), 0 30px 90px rgba(0, 0, 0, .22);
+}
+
+/* Login remains fully usable while the supplied travel scene becomes the backdrop. */
+.login-cinema {
+  background-image:
+    linear-gradient(135deg, rgba(0, 0, 0, .64), rgba(10, 7, 4, .4)),
+    var(--vp-world-art);
+  background-position: center, center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.glamour-reel {
+  background: rgba(4, 4, 4, .7);
+  backdrop-filter: blur(3px);
+}
+
+/* Operator shell: detailed artwork sits low and quiet behind solid work surfaces. */
+.sidebar {
+  background-image:
+    linear-gradient(180deg, rgba(3, 3, 3, .86) 0%, rgba(3, 3, 3, .74) 58%, rgba(3, 3, 3, .55) 100%),
+    var(--vp-world-art);
+  background-position: center, center bottom;
+  background-repeat: no-repeat;
+  background-size: cover, 430px auto;
+}
+
+.app-shell > main {
+  background-color: var(--vp-ivory);
+  background-image:
+    linear-gradient(rgba(248, 244, 237, .91), rgba(248, 244, 237, .91)),
+    var(--vp-world-art);
+  background-position: center, right bottom;
+  background-repeat: no-repeat;
+  background-size: cover, min(1180px, 100%) auto;
+  background-attachment: fixed;
+}
+
+/* Compact branded surfaces use a cropped, heavily veiled section of the same art. */
+.mandate-hero > aside,
+.guardian-hero > aside,
+.access-strip,
+.decision-head,
+.proof-timeline-panel > header,
+.member-decision-list > article > header,
+.approval-page > header,
+.life-graph-control {
+  background-image:
+    linear-gradient(105deg, rgba(5, 5, 5, .93), rgba(20, 14, 8, .79)),
+    var(--vp-world-art) !important;
+  background-position: center, center 73% !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* All interaction surfaces stay opaque so imagery never reduces legibility. */
+.composer,
+.service-canvas,
+.content .panel,
+.content .metrics > div,
+.mandate-layout,
+.guardian-card,
+.decision-capsule-panel,
+.proof-timeline-panel,
+.memory-panel,
+.wa-grid,
+.approval-list article,
+.member-decision-list > article {
+  isolation: isolate;
+}
+
+@media (max-width: 760px) {
+  .member-hero.graphic-heavy .hero-aurora {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, .84) 0%, rgba(0, 0, 0, .7) 62%, rgba(0, 0, 0, .5) 100%),
+      var(--vp-world-art);
+    background-position: center, 58% bottom;
+  }
+
+  .member-hero.graphic-heavy .hero-aurora::after {
+    inset: 52% 0 8%;
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, .58), rgba(0, 0, 0, .18)),
+      var(--vp-world-art);
+    background-position: center, center 82%;
+    background-size: cover, auto 155%;
+  }
+
+  .app-shell > main {
+    background-image:
+      linear-gradient(rgba(248, 244, 237, .95), rgba(248, 244, 237, .95)),
+      var(--vp-world-art);
+    background-attachment: scroll;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .app-shell > main {
+    background-image: none;
+  }
+
+  .member-hero.graphic-heavy .hero-aurora {
+    background-image: linear-gradient(118deg, #050505, #171109);
+  }
+}
